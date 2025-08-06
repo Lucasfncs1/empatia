@@ -158,7 +158,7 @@
     <!-- Caixa de mensagem -->
     <div class="card">
       <h2>Escreva a sua mensagem de empatia:</h2>
-      <textarea id="mensagem" placeholder="Fulano, você faz a diferença!"></textarea>
+      <textarea id="mensagem" placeholder="Fulano, você faz a diferença!" maxlength="50"></textarea>
       <button id="btnPostar" onclick="postarMensagem()">Postar</button>
     </div>
 
@@ -246,6 +246,11 @@
       
       if (!texto) {
         mostrarNotificacao('Por favor, escreva uma mensagem!');
+        return;
+      }
+
+      if (texto.length > 50) {
+        mostrarNotificacao('Máximo de 50 caracteres permitidos!');
         return;
       }
 
